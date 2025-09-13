@@ -1,4 +1,5 @@
 import LegalExpertSlider from "./LegalExpertSlider";
+import HowItWorks from "./HowItWorks";
 
 export default function MainContent() {
     return (
@@ -27,7 +28,7 @@ export default function MainContent() {
                             </div>
 
                             <div className="talk-to-lawyer-section desktop mb-8">
-                                {/* ➜ CTA: Book a consultation */}
+                                <HowItWorks />
                             </div>
 
                             <div className="client-reviews-section mb-8">
