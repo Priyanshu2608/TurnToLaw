@@ -5,51 +5,21 @@ export default function LegalExpertSlider() {
   const scrollRef = useRef(null);
 
   const experts = [
-    {
-      id: 1,
-      title: "Starting a business?",
-      image: chequeBounced,
-      href: "#",
-    },
-    {
-      id: 2,
-      title: "Blackmailed online?",
-      image: chequeBounced,
-      href: "#",
-    },
-    {
-      id: 3,
-      title: "Insurance claim rejected?",
-      image: chequeBounced,
-      href: "#",
-    },
-    {
-      id: 4,
-      title: "Family matters?",
-      image: chequeBounced,
-      href: "#",
-    },
-    {
-      id: 5,
-      title: "Child custody?",
-      image: chequeBounced,
-      href: "#",
-    },
-    {
-      id: 6,
-      title: "Buying property?",
-      image: chequeBounced,
-      href: "#",
-    },
+    { id: 1, title: "Starting a business?", image: chequeBounced, href: "#" },
+    { id: 2, title: "Blackmailed online?", image: chequeBounced, href: "#" },
+    { id: 3, title: "Insurance claim rejected?", image: chequeBounced, href: "#" },
+    { id: 4, title: "Family matters?", image: chequeBounced, href: "#" },
+    { id: 5, title: "Child custody?", image: chequeBounced, href: "#" },
+    { id: 6, title: "Buying property?", image: chequeBounced, href: "#" },
   ];
 
   const scroll = (dir) => {
-    if (scrollRef.current) {
-      scrollRef.current.scrollBy({
-        left: dir === "left" ? -220 : 220,
-        behavior: "smooth",
-      });
-    }
+    if (!scrollRef.current) return;
+    const step = 210;
+    scrollRef.current.scrollBy({
+      left: dir === "left" ? -step : step,
+      behavior: "smooth",
+    });
   };
 
   return (
@@ -64,10 +34,10 @@ export default function LegalExpertSlider() {
       </div>
 
       <div className="relative">
-        {/* Left Arrow */}
+
         <button
           onClick={() => scroll("left")}
-          className="absolute -left-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow hover:bg-gray-100"
+          className="absolute -left-5 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow hover:bg-gray-100 transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -75,28 +45,28 @@ export default function LegalExpertSlider() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-5 w-5 text-gray-600"
+            className="h-4 w-4"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15.75 19.5L8.25 12l7.5-7.5"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
           </svg>
         </button>
 
-        {/* Scrollable area */}
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-auto scroll-smooth no-scrollbar"
+          className="flex gap-5 overflow-hidden scroll-smooth"
         >
           {experts.map((exp) => (
-            <a
+            <div
               key={exp.id}
-              href={exp.href}
-              className="block w-[180px] rounded-xl overflow-hidden shadow hover:shadow-lg transition"
+              className="
+                w-[180px] flex-shrink-0
+                rounded-xl bg-white
+                shadow-md border border-gray-100
+                transition-all duration-300
+                hover:-translate-y-1 hover:shadow-xl
+              "
             >
-              <div className="h-44 overflow-hidden">
+              <div className="h-28 overflow-hidden rounded-t-xl">
                 <img
                   src={exp.image}
                   alt={exp.title}
@@ -104,10 +74,22 @@ export default function LegalExpertSlider() {
                   loading="lazy"
                 />
               </div>
-              <div className="bg-white px-3 py-3 text-center">
-                <h3 className="text-sm font-medium text-gray-800">{exp.title}</h3>
-                <div className="mt-2 flex items-center justify-center">
-                  <span className="text-indigo-600 font-semibold text-xs flex items-center gap-1">
+
+              <div className="px-3 py-3 text-center">
+                <h3 className="text-xs font-medium text-gray-800">{exp.title}</h3>
+
+                <div className="mt-2 flex justify-center">
+                  <button
+                    type="button"
+                    className="
+                      inline-flex items-center gap-1
+                      rounded-full bg-indigo-600
+                      px-3 py-1 text-[11px] font-semibold text-white
+                      shadow-sm
+                      transition-colors hover:bg-indigo-700
+                      focus:outline-none focus:ring-2 focus:ring-indigo-500
+                    "
+                  >
                     Consult now
                     <svg
                       width="8"
@@ -118,20 +100,19 @@ export default function LegalExpertSlider() {
                     >
                       <path
                         d="M0.456 0.275h2.592L7.188 4.36 3.048 8.447H0.456L4.614 4.36 0.456 0.275Z"
-                        fill="#4C50E0"
+                        fill="currentColor"
                       />
                     </svg>
-                  </span>
+                  </button>
                 </div>
               </div>
-            </a>
+            </div>
           ))}
         </div>
 
-        {/* Right Arrow */}
         <button
           onClick={() => scroll("right")}
-          className="absolute -right-5 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full bg-white shadow hover:bg-gray-100"
+          className="absolute -right-5 top-1/2 z-10 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white text-gray-700 shadow hover:bg-gray-100 transition"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -139,17 +120,12 @@ export default function LegalExpertSlider() {
             viewBox="0 0 24 24"
             strokeWidth="1.5"
             stroke="currentColor"
-            className="h-5 w-5 text-gray-600"
+            className="h-4 w-4"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M8.25 4.5l7.5 7.5-7.5 7.5"
-            />
+            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
           </svg>
         </button>
       </div>
     </section>
   );
 }
-
