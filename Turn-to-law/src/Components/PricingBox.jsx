@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { Listbox } from "@headlessui/react";
 import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
 
-const problemTypes = ["Select Problem",
+const problemTypes = [
+  "Select Problem",
   "Divorce & Child Custody",
   "Property & Real Estate",
   "Cheque Bounce & Money Recovery",
@@ -24,7 +25,8 @@ const problemTypes = ["Select Problem",
   "Service Matters, CAT",
 ];
 
-const languages = ["Select language",
+const languages = [
+  "Select language",
   "English",
   "हिन्दी (Hindi)",
   "தமிழ் (Tamil)",
@@ -41,6 +43,7 @@ const languages = ["Select language",
 const PricingBox = () => {
   const [selectedProblem, setSelectedProblem] = useState(problemTypes[0]);
   const [selectedLanguage, setSelectedLanguage] = useState(languages[0]);
+  const [selectedPrice, setSelectedPrice] = useState(1449); // default price
 
   return (
     <div className="fixed mt-30 ml-15 lg:top-5 z-50">
@@ -133,7 +136,7 @@ const PricingBox = () => {
 
         {/* Price */}
         <h2 className="text-3xl font-bold text-gray-900">
-          ₹1449{" "}
+          ₹{selectedPrice}{" "}
           <span className="text-base font-medium text-gray-500">( + GST )</span>
         </h2>
         <p className="mt-2 text-sm text-gray-600 leading-relaxed">
@@ -142,11 +145,11 @@ const PricingBox = () => {
 
         {/* Plans */}
         <div className="mt-6 grid grid-cols-2 gap-5">
-          {[199, 549, 1449, 2449].map((price, idx) => (
+          {[199, 549, 1449, 2449].map((price) => (
             <label
               key={price}
               className={`flex items-center gap-3 border rounded-lg p-3 text-gray-700 hover:border-indigo-400 cursor-pointer transition hover:scale-110 ${
-                price === 1449
+                selectedPrice === price
                   ? "bg-indigo-50 border-indigo-500 text-indigo-700 shadow-sm relative"
                   : ""
               }`}
@@ -154,13 +157,16 @@ const PricingBox = () => {
               <input
                 type="radio"
                 name="plan"
-                defaultChecked={price === 1449}
+                checked={selectedPrice === price}
+                onChange={() => setSelectedPrice(price)}
                 className={`h-5 w-5 border-gray-300 text-indigo-600 focus:ring-indigo-400 cursor-pointer transform transition-transform duration-200 ${
-                  price === 1449 ? "border-indigo-400 text-indigo-600 focus:ring-indigo-500" : ""
+                  selectedPrice === price
+                    ? "border-indigo-400 text-indigo-600 focus:ring-indigo-500"
+                    : ""
                 }`}
               />
               <span className="p-2"><b>₹{price}</b></span>
-              {price === 1449 && (
+              {price === selectedPrice && selectedPrice === 1449 && (
                 <span className="absolute top-1 right-2 text-[10px] bg-indigo-600 text-white px-2 py-0.5 rounded-full font-medium">
                   Recommended
                 </span>
