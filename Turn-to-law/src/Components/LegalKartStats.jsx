@@ -8,7 +8,7 @@ const LegalKartStats = () => {
           Trusted by users from over <br /><span className="text-indigo-600">80 countries</span>
         </h1>
         <p className="text-gray-700 text-2xl mt-10 text-left">
-          Millions benefited with online consultation on LegalKart
+          Millions benefited with online consultation on Turn2Law
         </p>
       </div>
 

@@ -4,6 +4,7 @@ import PricingBox from "./PricingBox";
 import LawyerConsultationLeft from "./LawyerConsultationLeft";
 import LawyerCarousel from "./LawyerCarousel";
 import LegalKartStats from "./LegalKartStats";
+import LegalkartAdvantage from "./LegalKartAdvantage";
 
 
 
@@ -49,13 +50,14 @@ export default function MainContent() {
                 {/* ➜ Testimonials carousel */}
               </div>
 
-              <div className="all-over-user-section text-center mb-8">
+              <div className="all-over-user-section text-center mb-4">
                 {/* ➜ Stats / coverage */}
                  <LegalKartStats />
               </div>
 
               <div className="lk-advantage-section mb-8">
                 {/* ➜ Advantages / why choose us */}
+                <LegalkartAdvantage />
               </div>
 
               <div className="lk-news-section">
