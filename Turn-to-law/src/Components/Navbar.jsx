@@ -26,14 +26,14 @@ const Navbar = () => {
   return (
     <nav className="w-full bg-white shadow-sm flex items-center justify-between px-20 py-3">
       <div className="flex items-center gap-2">
-        <img src={logo} alt="Logo" className="h-8" />
+        <img src={logo} alt="Logo" className="h-8 pl-14" />
         <span className="text-xl font-bold">
           <span className="text-yellow-400">TURN2LAW</span>
         </span>
       </div>
       
       <div className="flex items-center gap-6 font-semibold ml-20 text-md">
-        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1 rounded-full font-medium shadow">
+        <button className="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-1 rounded-full font-medium shadow-[0_10px_15px_rgba(0,0,0,0.2)]">
           Talk To Lawyer
         </button>
         
