@@ -1,20 +1,19 @@
 import { Users, PhoneCall, Clock } from "lucide-react";
-
+import refund from '../assets/full-refund.svg'
 const LawyerConsultationLeft = () => {
-  return (
-    <section className="bg-white py-12 px-6 md:px-20 relative flex flex-col md:flex-row items-center gap-10">
-      {/* Left Content */}
-      <div className="md:w-2/3 space-y-6">
-        <h2 className="text-4xl font-bold leading-snug">
+   return (
+      <div className="mb-12 mt-10 relative border-b-3 border-gray-200 pb-10 ">
+        {/* Left Section */}
+        <h2 className="text-4xl font-bold leading-snug text-gray-900">
           Online Lawyer Consultation <br /> Anytime Anywhere
         </h2>
-        <p className="text-gray-600 text-lg">
+        <p className="text-gray-600 mt-2 text-lg">
           Legal Consultation Starts from{" "}
           <span className="text-blue-600 font-semibold">₹31/min</span>
         </p>
-
+  
         {/* Lawyer Avatars */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 mt-6">
           <img
             src="https://randomuser.me/api/portraits/men/32.jpg"
             alt="lawyer"
@@ -35,39 +34,40 @@ const LawyerConsultationLeft = () => {
             <span className="inline-block w-3 h-3 bg-green-500 rounded-full"></span>
           </span>
         </div>
-
+  
         {/* Button */}
-        <button className="bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-indigo-700">
-          Consult now
-        </button>
-
+        <div className="mt-6">
+          <button className="bg-indigo-600 text-white px-6 py-3 rounded-md font-semibold shadow hover:bg-indigo-700">
+            Consult now
+          </button>
+        </div>
+  
         {/* Features */}
-        <div className="flex items-center gap-8 text-gray-700 text-sm">
+        <div className="flex items-center gap-2 text-gray-700 text-sm mt-6">
           <div className="flex items-center gap-2">
             <Users size={18} />
-            <span>Experienced Lawyers</span>
+            <span>Experienced Lawyers |</span>
           </div>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
             <PhoneCall size={18} />
-            <span>Secure Calls</span>
+            <span>Secure Calls |</span>
           </div>
           <div className="flex items-center gap-2">
             <Clock size={18} />
             <span>24/7</span>
           </div>
         </div>
+  
+        {/* Refund Badge */}
+        <div className="absolute top-44 right-20 hidden lg:block">
+          <img
+            src={refund} // replace with your asset
+            alt="Full Refund"
+            className="w-32"
+          />
+        </div>
       </div>
-
-      {/* Full Refund Badge */}
-      <div className="md:w-1/3 flex justify-center md:justify-end">
-        <img
-          src="https://i.ibb.co/8dMy2N0/refund-badge.png" // use your refund badge image
-          alt="Full Refund"
-          className="w-40"
-        />
-      </div>
-    </section>
-  );
-};
+    );
+  };
 
 export default LawyerConsultationLeft;
