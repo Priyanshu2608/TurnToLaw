@@ -4,6 +4,7 @@ import PricingBox from "./PricingBox";
 import { Users, PhoneCall, Clock } from "lucide-react";
 import refund from '../assets/full-refund.svg'
 import LawyerCarousel from "./LawyerCarousel";
+import Benifits from "./Benifits";
 
 function LawyerConsultationLeft() {
   return (
@@ -75,7 +76,32 @@ function LawyerConsultationLeft() {
   );
 }
 
+import React, { useEffect, useRef, useState } from "react";
+
 export default function MainContent() {
+  const [isStopped, setIsStopped] = useState(false);
+  const benefitsRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const entry = entries[0];
+        setIsStopped(entry.isIntersecting);
+      },
+      { threshold: 0.1 }
+    );
+
+    if (benefitsRef.current) {
+      observer.observe(benefitsRef.current);
+    }
+
+    return () => {
+      if (benefitsRef.current) {
+        observer.unobserve(benefitsRef.current);
+      }
+    };
+  }, []);
+
   return (
     <main className="main-content">
       <div className="divide-section">
@@ -129,17 +155,25 @@ export default function MainContent() {
                 {/* ➜ News / blogs */}
               </div>
             </div>
-
+      
             {/* Right column (PricingBox) */}
-            <div className="lg:w-5/12 w-full order-1 lg:order-2">
-              <div className="p-0 lg:p-6">
-                <PricingBox />
-              </div>
-            </div>
+            <div className="lg:w-5/12 w-full order-1 lg:order-2 relative">
+  <div
+    className={`transition-all duration-500 ease-in-out transform ${
+      isStopped
+        ? "absolute bottom-0 left-0 w-full translate-y-0 opacity-95"
+        : "sticky top-20 translate-y-0 opacity-100"
+    }`}
+  >
+    <PricingBox />
+  </div>
+</div>
+            
 
           </div>
         </div>
       </div>
+      
     </main>
   );
 }
