@@ -6,18 +6,14 @@ import LawyerCarousel from "./LawyerCarousel";
 import LegalKartStats from "./LegalKartStats";
 import LegalkartAdvantage from "./LegalKartAdvantage";
 
-
-
 export default function MainContent() {
   return (
     <main className="main-content">
       <div className="divide-section">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row gap-8">
-            
             {/* Left column */}
             <div className="lg:w-7/12 w-max order-2 lg:order-1 pl-30">
-              
               {/* Online Consultation Section */}
               <LawyerConsultationLeft />
 
@@ -39,7 +35,7 @@ export default function MainContent() {
                 {/* ➜ “Consult top experts” cards */}
               </div>
               <div>
-                <LawyerCarousel/>
+                <LawyerCarousel />
               </div>
 
               <div className="talk-to-lawyer-section desktop mb-8">
@@ -52,7 +48,7 @@ export default function MainContent() {
 
               <div className="all-over-user-section text-center mb-4">
                 {/* ➜ Stats / coverage */}
-                 <LegalKartStats />
+                <LegalKartStats />
               </div>
 
               <div className="lk-advantage-section mb-8">
@@ -60,18 +56,17 @@ export default function MainContent() {
                 <LegalkartAdvantage />
               </div>
 
-              <div className="lk-news-section">
-                {/* ➜ News / blogs */}
-              </div>
+              <div className="lk-news-section">{/* ➜ News / blogs */}</div>
             </div>
 
             {/* Right column (PricingBox) */}
             <div className="lg:w-5/12 w-full order-1 lg:order-2">
-              <div className="p-0 lg:p-6">
-                <PricingBox />
+              <div className="p-0 lg:p-6 h-full">
+                <div className="sticky top-30">
+                  <PricingBox />
+                </div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
