@@ -46,7 +46,7 @@ const PricingBox = () => {
   const [selectedPrice, setSelectedPrice] = useState(1449); // default price
 
   return (
-    <div className="fixed mt-30 ml-15 lg:top-5 z-50">
+    <div className=" mt-30 ml-15 lg:top-5 z-50">
       <div className="w-full max-w-sm mx-auto rounded-2xl border border-gray-100 bg-white p-6 shadow-xl">
         {/* Problem Type */}
         <div className="flex flex-col gap-3 mb-4">
