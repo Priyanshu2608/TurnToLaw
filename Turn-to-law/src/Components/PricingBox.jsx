@@ -140,7 +140,7 @@ const PricingBox = () => {
           <span className="text-base font-medium text-gray-500">( + GST )</span>
         </h2>
         <p className="mt-2 text-sm text-gray-600 leading-relaxed">
-          To consult Lawyers, add Legalkart Cash to your wallet
+          To consult Lawyers, add Turn2Law Cash to your wallet
         </p>
 
         {/* Plans */}
