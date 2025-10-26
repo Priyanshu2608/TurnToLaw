@@ -6,6 +6,7 @@ import LawyerCarousel from "./LawyerCarousel";
 import LegalKartStats from "./LegalKartStats";
 import NewsSection from "./NewsSection";
 import LegalkartAdvantage from "./LegalKartAdvantage";
+import Testimonials from "./Testimonials";
 
 
 
@@ -49,6 +50,7 @@ export default function MainContent() {
 
               <div className="client-reviews-section mb-8">
                 {/* ➜ Testimonials carousel */}
+                <Testimonials />
               </div>
 
               <div className="all-over-user-section text-center mb-4">
