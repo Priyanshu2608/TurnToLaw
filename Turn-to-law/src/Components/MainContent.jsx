@@ -4,6 +4,7 @@ import PricingBox from "./PricingBox";
 import LawyerConsultationLeft from "./LawyerConsultationLeft";
 import LawyerCarousel from "./LawyerCarousel";
 import LegalKartStats from "./LegalKartStats";
+import NewsSection from "./NewsSection";
 import LegalkartAdvantage from "./LegalKartAdvantage";
 
 
@@ -61,7 +62,7 @@ export default function MainContent() {
               </div>
 
               <div className="lk-news-section">
-                {/* ➜ News / blogs */}
+                <NewsSection />
               </div>
             </div>
 
